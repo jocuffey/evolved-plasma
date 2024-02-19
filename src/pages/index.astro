@@ -1,0 +1,58 @@
+---
+// Component Imports
+import Calculator from '../components/Calculator.astro';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Metric Calorie Counter</title>
+    <meta name="description" content="Use Metric Calorie Counter to easily calculate the calories per gram. Perfect for quick nutrition facts and meal planning." />
+    <meta name="keywords" content="calorie counter, calculate calories, calories per gram, calories per 100g, metric calculator, nutrition" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://www.metriccaloriecounter.com/" />
+    <style>
+        html,
+        body {
+            font-family: system-ui;
+            margin: 0;
+            background: #f9f9f9;
+            color: #333;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+        }
+        body {
+            padding: 2rem;
+        }
+		footer {
+			padding: 10px 20px;
+			font-size: 0.8rem;
+			text-align: center;
+			background-color: #f0f0f0;
+			color: #333;
+		}
+		.content-wrap {
+			flex: 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 1rem;
+			box-sizing: border-box;
+		}
+    </style>
+</head>
+<body>
+	<div class="content-wrap">
+		<Calculator/>
+	</div>
+	<footer>
+		<p>© 2024 Metric Calorie Counter. All rights reserved.</p>
+	</footer>
+</body>
+</html>
