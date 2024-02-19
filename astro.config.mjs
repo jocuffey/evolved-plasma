@@ -4,5 +4,6 @@ import alpine from '@astrojs/alpinejs';
 // https://astro.build/config
 export default defineConfig({
 	integrations: [alpine()],
-	site: 'https://jocuffey.github.io'
+	site: 'https://metriccaloriecounter.netlify.app',
+	base: '/evolved-plasma',
 });
