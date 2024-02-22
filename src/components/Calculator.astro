@@ -1,60 +1,63 @@
-<div x-data="{ calories: 30, weight: 100, grams: 100, get totalCalories() { let result = this.calories * this.weight / 100; return result % 1 === 0 ? result.toString() : result.toFixed(2); } }" class="calculator">
+<div x-data="{ calories: 30, weight: 100, grams: 100, get totalCalories() { let result = this.calories * this.weight / this.grams; return result % 1 === 0 ? result.toString() : result.toFixed(1); } }" class="calculator">
 	<p class="sentence">
 		A product with 
-		<input type="number" id="calories" x-model.number="calories" x-on:focus="calories = ''" class="input" />
+		<input type="number" id="calories" x-model.number="calories" x-on:focus="$event.target.select()" class="input" 
+		@keydown="function (event) { if (!/[0-9]/.test(event.key) && event.key !== 'Backspace' && event.key !== 'Tab' && event.key !== 'ArrowLeft' && event.key !== 'ArrowRight' && event.key !== '.' && event.key !== 'Delete') event.preventDefault(); }" />
 		calories per
-		<input type="number" id="grams" x-model.number="grams" x-on:focus="grams = ''" class="input" />
+		<input type="number" id="grams" x-model.number="grams" x-on:focus="$event.target.select()" class="input" 
+		@keydown="function (event) { if (!/[0-9]/.test(event.key) && event.key !== 'Backspace' && event.key !== 'Tab' && event.key !== 'ArrowLeft' && event.key !== 'ArrowRight' && event.key !== '.' && event.key !== 'Delete') event.preventDefault(); }" />
 		grams <br> in a portion of 
-		<input type="number" id="weight" x-model.number="weight" x-on:focus="weight = ''" class="input" />
+		<input type="number" id="weight" x-model.number="weight" x-on:focus="$event.target.select()" class="input"
+		@keydown="function (event) { if (!/[0-9]/.test(event.key) && event.key !== 'Backspace' && event.key !== 'Tab' && event.key !== 'ArrowLeft' && event.key !== 'ArrowRight' && event.key !== '.' && event.key !== 'Delete') event.preventDefault(); }" />
 		grams <br> contains
 		<span class="result" x-text="totalCalories"></span> total calories.
 	</p>
 </div>
-  
+
 <style>
-body, html {
-	height: 100vh;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
+	body, html {
+		height: 100vh;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	}
 
-.calculator {
-	text-align: center;
-	box-sizing: border-box;
-}
+	.calculator {
+		text-align: center;
+		box-sizing: border-box;
+	}
 
-.sentence {
-	font-size: 2rem;
-	color: #333;
-	line-height: 1.6;
-}
+	.sentence {
+		font-size: 2rem;
+		color: #333;
+		line-height: 1.6;
+	}
 
-.input {
-	width: 100px;
-	margin: 0 5px;
-	border-bottom: 3px solid #007bff;
-	border-top: none;
-	border-left: none;
-	border-right: none;
-	font-size: 2rem;
-	color: #333;
-	background-color: transparent;
-	text-align: center;
-}
+	.input {
+		width: 100px;
+		margin: 0 5px;
+		border-bottom: 3px solid #007bff;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		font-size: 2rem;
+		color: #333;
+		background-color: transparent;
+		text-align: center;
+	}
 
-.input:focus {
-	outline: none;
-	border-bottom-color: #0056b3;
-}
+	.input:focus {
+		outline: none;
+		border-bottom-color: #0056b3;
+	}
 
-.result {
-	font-weight: bold;
-	color: #007bff;
-	font-size: 2rem;
-}
+	.result {
+		font-weight: bold;
+		color: #007bff;
+		font-size: 2rem;
+	}
 </style>

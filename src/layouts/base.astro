@@ -1,0 +1,60 @@
+---
+// Component Imports
+import Footer from '../components/Footer.astro';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Metric Utensils</title>
+    <meta name="description" content="Use Metric Utensils to easily calculate the calories per gram. Perfect for quick nutrition facts and meal planning." />
+    <meta name="keywords" content="calorie counter, calculate calories, calories per gram, calories per 100g, metric calculator, chicken cooked temperature celsius" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://metricutensils.netlify.app" />
+	<link rel="stylesheet" href="../styles/global.css" />
+   
+</head>
+<body>
+	<div class="content-wrap">
+		<slot/>
+	</div>
+	<Footer/>
+</body>
+</html>
+
+<style>
+    html,
+    body {
+        font-family: system-ui;
+        margin: 0;
+        background: #f9f9f9;
+        color: #333;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    body {
+        padding: 2rem;
+    }
+    footer {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        text-align: center;
+        background-color: #f0f0f0;
+        color: #333;
+    }
+    .content-wrap {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        padding: 1rem;
+        box-sizing: border-box;
+}
+</style>
